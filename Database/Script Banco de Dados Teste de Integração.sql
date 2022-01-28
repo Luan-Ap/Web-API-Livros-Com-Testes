@@ -1,0 +1,17 @@
+USE master;
+GO
+
+CREATE DATABASE DB_LIVROS_TESTING;
+GO
+
+USE DB_LIVROS_TESTING;
+GO
+
+CREATE TABLE Livros(
+	LivroId int PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Titulo varchar(100) NOT NULL,
+	Sinopse varchar(450) NOT NULL,
+	Publicacao date NOT NULL,
+	Autor varchar(100) NOT NULL,
+);
+GO

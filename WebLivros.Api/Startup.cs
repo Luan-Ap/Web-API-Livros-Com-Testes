@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 using WebLivros.Core.DTO;
 using WebLivros.Core.Entities;
 using WebLivros.Core.Interfaces.Repository;

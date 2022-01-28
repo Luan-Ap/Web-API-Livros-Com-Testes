@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebLivros.Services", "WebLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebLivros.Core.UnitTests", "WebLivros.Core.UnitTests\WebLivros.Core.UnitTests.csproj", "{1255700B-B528-4378-8A82-FA9D11C7E806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLivros.Api.UnitTests", "WebLivros.Api.UnitTests\WebLivros.Api.UnitTests.csproj", "{7F01BBF0-F05C-42CD-A074-DDD05FA8F03A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebLivros.Api.UnitTests", "WebLivros.Api.UnitTests\WebLivros.Api.UnitTests.csproj", "{7F01BBF0-F05C-42CD-A074-DDD05FA8F03A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLivros.Services.UnitTests", "WebLivros.Service.UnitTests\WebLivros.Services.UnitTests.csproj", "{CC412DED-8965-4758-AB82-290ED79040AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebLivros.Services.UnitTests", "WebLivros.Service.UnitTests\WebLivros.Services.UnitTests.csproj", "{CC412DED-8965-4758-AB82-290ED79040AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLivros.Api.IntegrationTests", "WebLivros.Api.IntegrationTests\WebLivros.Api.IntegrationTests.csproj", "{70193491-97B1-40C9-BD36-7CBF42137FA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CC412DED-8965-4758-AB82-290ED79040AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC412DED-8965-4758-AB82-290ED79040AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC412DED-8965-4758-AB82-290ED79040AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70193491-97B1-40C9-BD36-7CBF42137FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70193491-97B1-40C9-BD36-7CBF42137FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70193491-97B1-40C9-BD36-7CBF42137FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70193491-97B1-40C9-BD36-7CBF42137FA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
