@@ -25,8 +25,7 @@ namespace WebLivros.Api.Controllers
             return Ok(livrosDto);
         }
 
-        [HttpGet]
-        [Route("/api/v1/[controller]/LivroId/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetByLivroId(int id)
         {
             var livrosDto = await _service.FindLivroById(id);
@@ -39,7 +38,8 @@ namespace WebLivros.Api.Controllers
             return Ok(livrosDto);
         }
 
-        [HttpGet("{nome}")]
+        [HttpGet]
+        [Route("/api/v1/[controller]/Titulo/{nome}")]
         public async Task<IActionResult> GetByNome(string nome)
         {
             var livrosDto = await _service.FindLivroByNomeAsync(nome);
