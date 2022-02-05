@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebLivros.Mvc.Models.LivroViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<p>
+    <a class="btn btn-outline-success" asp-action="CreateOrUpdate"><i class="fa fa-plus"></i> Adicionar Novo Livro</a>
+</p>
+<hr />
+<form class="form-inline" asp-action="Index" method="get">
+    <input class="form-control mb-2 mr-sm-2" type="text" placeholder="Digite um Título ou o nome de um Autor..." value="@ViewData["BuscarLivros"]" name="busca" style="width:350px"/>
+    <div class="mb-2 mr-sm-2">
+        <button type="submit" class="btn btn-outline-dark"><i class="fa fa-search"></i> Buscar</button>
+    </div>
+</form>
+<br />
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.LivroId">@item.Titulo</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td style="width: 15%">
+                <a class="btn btn-outline-primary" asp-action="CreateOrUpdate" asp-route-id="@item.LivroId"><i class="fa fa-edit"></i> Editar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

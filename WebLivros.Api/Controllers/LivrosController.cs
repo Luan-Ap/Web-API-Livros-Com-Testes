@@ -46,7 +46,7 @@ namespace WebLivros.Api.Controllers
 
             if (!livrosDto.Any())
             {
-                return NotFound("Ainda não há nenhum livro com este nome na base de dados.");
+                return NotFound(livrosDto);
             }
 
             return Ok(livrosDto);
@@ -60,7 +60,7 @@ namespace WebLivros.Api.Controllers
 
             if (!livrosDto.Any())
             {
-                return NotFound("Ainda não há nenhum livro escrito por este autor na base de dados.");
+                return NotFound(livrosDto);
             }
 
             return Ok(livrosDto);

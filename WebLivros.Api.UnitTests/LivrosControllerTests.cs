@@ -116,8 +116,8 @@ namespace WebLivros.Api.UnitTests
             Assert.Contains("Livro", livrosRetornadosDoService[1].Titulo);
         }
 
-        [Fact(DisplayName = "DADO o Nome de livros não existentes na base de dados QUANDO chamamos o método GetByNome da controller ENTÃO chamar o service e o status code 404 deve ser retornado com uma mensagem de erro.")]
-        public async void GetByNome_ChamaFindLivroByNomeAsync_StatusCode404RetornadoComUmaMensagemDeErro()
+        [Fact(DisplayName = "DADO o Nome de livros não existentes na base de dados QUANDO chamamos o método GetByNome da controller ENTÃO chamar o service e o status code 404 deve ser retornado com uma lista vazia.")]
+        public async void GetByNome_ChamaFindLivroByNomeAsync_StatusCode404RetornadoComUmaListaVazia()
         {
             //ARRANGE
             var livroEsperadoDoService = new List<LivroDto> { };
@@ -133,8 +133,8 @@ namespace WebLivros.Api.UnitTests
             var objectResult = Assert.IsType<NotFoundObjectResult>(result);
             Assert.Equal(404, objectResult.StatusCode);
 
-            var mensagemErro = Assert.IsType<string>(objectResult.Value);
-            Assert.Equal("Ainda não há nenhum livro com este nome na base de dados.", mensagemErro);
+            var listaRetornada = Assert.IsType<List<LivroDto>>(objectResult.Value);
+            Assert.Empty(listaRetornada);
         }
 
         [Fact(DisplayName = "DADO o Autor de livros já existentes na base de dados QUANDO chamamos o método GetByAutor da controller ENTÃO chamar o service e o status code 200 deve ser retornado com a lista de livros que combinam com o Autor dado.")]
@@ -165,8 +165,8 @@ namespace WebLivros.Api.UnitTests
             Assert.Equal("Autor Livro 1-2", livrosRetornadosDoService[1].Autor);
         }
 
-        [Fact(DisplayName = "DADO o Autor de livros não existentes na base de dados QUANDO chamamos o método GetByAutor da controller ENTÃO chamar o service e o status code 404 deve ser retornado com uma mensagem de erro.")]
-        public async void GetByAutor_ChamarFindLivroByAutorAsync_StatusCode404RetornadoComMensagemDeErro()
+        [Fact(DisplayName = "DADO o Autor de livros não existentes na base de dados QUANDO chamamos o método GetByAutor da controller ENTÃO chamar o service e o status code 404 deve ser retornado com uma lista vazia.")]
+        public async void GetByAutor_ChamarFindLivroByAutorAsync_StatusCode404RetornadoComUmaListaVazia()
         {
             //ARRANGE
             var livroEsperadoDoService = new List<LivroDto> { };
@@ -182,8 +182,8 @@ namespace WebLivros.Api.UnitTests
             var objectResult = Assert.IsType<NotFoundObjectResult>(result);
             Assert.Equal(404, objectResult.StatusCode);
 
-            var mensagemErro = Assert.IsType<string>(objectResult.Value);
-            Assert.Equal("Ainda não há nenhum livro escrito por este autor na base de dados.", mensagemErro);
+            var listaRetornada = Assert.IsType<List<LivroDto>>(objectResult.Value);
+            Assert.Empty(listaRetornada);
         }
 
         [Fact(DisplayName = "DADO um livro válido QUANDO chamamos o método Post da controller ENTÃO chamar o service para realizar a inserção e o staus code 201 deve ser retornado com o livro recem inserido.")]
