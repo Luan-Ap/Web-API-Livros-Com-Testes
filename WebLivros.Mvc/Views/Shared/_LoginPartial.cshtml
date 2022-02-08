@@ -1,0 +1,18 @@
+﻿@* 
+    Esta se trata de um Partial View. Ela verifica se o usuário está autenticado ou não.
+    Caso esteja, ela irá criar um pequeno form exibindo o nome do usuário e um link para fazer logout.
+    Caso contrário, ela irá exibir apenas um link para fazer login
+
+*@
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form method="post" class="form-inline" asp-action="Logout" asp-controller="Conta">
+        Seja Bem-Vindo @User.Identity.Name
+        <button type="submit" class="ml-5 btn btn-link">Logout</button>
+    </form>
+}
+else
+{
+    <a class="btn btn-link" asp-action="Login" asp-controller="Conta">Login</a>
+}

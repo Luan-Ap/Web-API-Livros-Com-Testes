@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ using WebLivros.Mvc.Models;
 
 namespace WebLivros.Mvc.Controllers
 {
+    //Este atributo define que a classe toda necessita que o usuário esteja logado para acessar suas funcilnalidades
+    [Authorize]
     public class LivrosController : Controller
     {
         private readonly IHttpClientFactory _http;
@@ -83,6 +86,8 @@ namespace WebLivros.Mvc.Controllers
         }
 
         // GET: LivrosController/CreateOrUpdate
+        //Este atributo define que apenas os usuários que possuem Role(função) = Admin é que podem acessar esta funcionalidade
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> CreateOrUpdate(int id = 0)
         {
             //Caso o id seja 0, que é o valor padrão, a view será retornada com os campos vazios, prontos para a inserção de um novo livro
@@ -108,6 +113,7 @@ namespace WebLivros.Mvc.Controllers
         //Esta Action servirá tanto para a Criação quanto para a Atualização de um livro
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> CreateOrUpdate(LivroViewModel livro)
         {
             var client = _http.CreateClient("livros");

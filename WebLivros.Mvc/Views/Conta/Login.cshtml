@@ -1,0 +1,27 @@
+﻿@model WebLivros.Mvc.Models.ContaViewModel
+
+<div class="container border-success">
+    <form method="post" asp-action="Login" style="width: 500px; margin:auto;">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" type="text" class="form-control" placeholder="Digite seu Usuário..." />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" class="form-control" placeholder="Digite sua Senha..." />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check">
+            <input asp-for="RememberMe" type="checkbox" class="form-check-input" />
+            <label asp-for="RememberMe"></label>
+        </div>
+        <button type="submit" class="btn btn-outline-primary"><i class="fa fa-check"></i> Entrar</button>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

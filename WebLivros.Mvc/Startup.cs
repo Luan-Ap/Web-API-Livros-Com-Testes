@@ -31,6 +31,22 @@ namespace WebLivros.Mvc
             {
                 c.BaseAddress = new Uri(Configuration.GetValue<string>("WebApiLivros"));
             });
+
+            //Adicionamos um AuthenticationBuilder para contruir o cookie de autenticação e passamos um nome para ele
+            services.AddAuthentication("CookieLivros")
+                .AddCookie("CookieLivros", opcoes => 
+                {
+                    //Aqui defino as configurações base do cookie
+
+                    //Nome do cookie
+                    opcoes.Cookie.Name = "CookieLivros";
+                    
+                    //O caminho para a tela de Login
+                    opcoes.LoginPath = "/Conta/Login";
+
+                    //O caminho para a tela de acesso negado
+                    opcoes.AccessDeniedPath = "/Conta/AcessoNegado";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,13 +67,14 @@ namespace WebLivros.Mvc
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Livros}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
