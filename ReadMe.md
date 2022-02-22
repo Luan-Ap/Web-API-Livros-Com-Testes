@@ -33,7 +33,7 @@ A seguir, serão apresentadas algumas imagens da aplicação.
 
 
 
-- Tela login preenchida:
+- Tela Inicial:
 
   ![alt](Imagens-exemplo/tela-inicial.jpg)
 
